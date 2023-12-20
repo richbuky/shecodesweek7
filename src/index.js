@@ -13,8 +13,7 @@ function updateWeather(response) {
   descriptionelement.innerHTML = response.data.condition.description;
   humidityelement.innerHTML = `${response.data.temperature.humidity}%,`;
   windspeedelement.innerHTML = `${response.data.wind.speed}km/hr`;
-  timeelement.innerHTML = response.data.temperatureelement.innerHTML =
-    Math.round(temperature);
+  temperatureelement.innerHTML = Math.round(temperature);
 }
 
 function formatDate(date) {
@@ -52,4 +51,4 @@ function FormSubmit(event) {
 let Searchformelement = document.querySelector("#search-form");
 Searchformelement.addEventListener("submit", FormSubmit);
 
-Searchcity("Lagos");
+Searchcity("Lisbon");
