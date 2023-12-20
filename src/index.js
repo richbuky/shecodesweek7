@@ -1,10 +1,37 @@
 function updateWeather(response) {
   let temperatureelement = document.querySelector("#temperature");
-  let temperature = Math.round(response.data.temperature.current);
+  let temperature = response.data.temperature.current;
   let Cityelement = document.querySelector("#city");
+  let descriptionelement = document.querySelector("#description");
+  let humidityelement = document.querySelector("#humidity");
+  let windspeedelement = document.querySelector("#wind-speed");
+  let timeelement = document.querySelector("#time");
+  let date = new Date(response.data.time * 1000);
 
   Cityelement.innerHTML = response.data.city;
-  temperatureelement.innerHTML = temperature;
+  timeelement.innerHTML = formatDate(date);
+  descriptionelement.innerHTML = response.data.condition.description;
+  humidityelement.innerHTML = `${response.data.temperature.humidity}%,`;
+  windspeedelement.innerHTML = `${response.data.wind.speed}km/hr`;
+  timeelement.innerHTML = response.data.temperatureelement.innerHTML =
+    Math.round(temperature);
+}
+
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednessday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+
+  return `${day} ${hours}: ${minutes}`;
 }
 
 function Searchcity(city) {
@@ -22,3 +49,5 @@ function FormSubmit(event) {
 
 let Searchformelement = document.querySelector("#search-form");
 Searchformelement.addEventListener("submit", FormSubmit);
+
+Searchcity("Lagos");
