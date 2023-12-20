@@ -9,7 +9,7 @@ function updateWeather(response) {
   let date = new Date(response.data.time * 1000);
 
   Cityelement.innerHTML = response.data.city;
-  timeelement.innerHTML = formatDate(date);
+  timeelement.innerHTML = `${formatDate(date)},`;
   descriptionelement.innerHTML = response.data.condition.description;
   humidityelement.innerHTML = `${response.data.temperature.humidity}%,`;
   windspeedelement.innerHTML = `${response.data.wind.speed}km/hr`;
@@ -30,8 +30,10 @@ function formatDate(date) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-
-  return `${day} ${hours}: ${minutes}`;
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${day} ${hours}:${minutes}`;
 }
 
 function Searchcity(city) {
