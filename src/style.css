@@ -65,10 +65,10 @@ main {
 .temperature-value {
   font-size: 88px;
   font-weight: bold;
-  margin-left: 10px;
+  line-height: 88px;
 }
 .temperature-unit {
-  margin-top: 16px;
+  margin-top: 6px;
   font-weight: 28px;
 }
 footer {
