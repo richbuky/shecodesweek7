@@ -53,4 +53,4 @@ function FormSubmit(event) {
 let Searchformelement = document.querySelector("#search-form");
 Searchformelement.addEventListener("submit", FormSubmit);
 
-Searchcity("Lisbon");
+Searchcity("Lagos");
